@@ -1,17 +1,26 @@
 <template>
   <div
     v-if="blok.body.length > 0"
-    class="w-full flex flex-col space-y-5 p-5 md:p-10"
+    class="w-full p-5 md:p-10"
     :style="`background-color: ${blok.color.color}`"
   >
-    <component
-      v-for="component in blok.body"
-      class="w-full"
-      :key="component._uid"
-      :is="component.component"
-      :blok="component"
-    />
-    <slot />
+    <div
+      class="flex"
+      :class="[
+        { 'max-w-prose mx-auto': blok.center },
+        !!+blok.direction
+          ? 'flex-col space-y-5'
+          : 'flex-col space-y-5 sm:space-y-0 sm:space-x-5 sm:flex-row items-center justify-between flex-wrap',
+      ]"
+    >
+      <component
+        v-for="component in blok.body"
+        :key="component._uid"
+        :is="component.component"
+        :blok="component"
+      />
+      <slot />
+    </div>
   </div>
 </template>
 <script>

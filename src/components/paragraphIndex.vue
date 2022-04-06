@@ -4,7 +4,6 @@
     :class="[
       { 'max-w-prose mx-auto': blok.space_center },
       { 'text-center': blok.text_center },
-      ,
       { 'rounded-md shadow-md bg-gray-50': blok.card },
     ]"
   >

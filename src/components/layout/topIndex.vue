@@ -12,7 +12,6 @@
 import container from "../containerIndex.vue";
 export default {
   components: { container },
-  inject: ["unicSet"],
   props: {
     blok: {
       type: Object,
