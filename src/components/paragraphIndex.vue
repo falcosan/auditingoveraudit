@@ -10,7 +10,7 @@
   >
     <Markdown
       class="markdown"
-      :class="{ 'p-5': blok.card }"
+      :class="{ 'p-2.5 md:p-5': blok.card }"
       :style="`color: ${blok.color.color}`"
       :source="text"
       breaks
