@@ -8,6 +8,7 @@ import "./assets/index.css";
 
 const app = createApp(App);
 app.provide("unicSet", Global.unicSet);
+app.provide("removeBackticks", Global.removeBackticks);
 app.use(router);
 app.use(StoryblokVue, StoryblokConfig);
 app.mount("#auditingoveraudit");

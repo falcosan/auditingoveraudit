@@ -1,8 +1,5 @@
 <template>
-  <section
-    v-if="blok.body.length > 0"
-    class="top flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-10 justify-between"
-  >
+  <section v-if="blok.body.length > 0" class="top w-full">
     <component
       v-for="component in blok.body"
       :key="component._uid"
@@ -12,10 +9,9 @@
   </section>
 </template>
 <script>
-import media from "../mediaIndex.vue";
-import paragraph from "../paragraphIndex.vue";
+import container from "../containerIndex.vue";
 export default {
-  components: { media, paragraph },
+  components: { container },
   inject: ["unicSet"],
   props: {
     blok: {

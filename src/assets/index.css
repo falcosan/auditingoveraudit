@@ -47,9 +47,6 @@
         word-break: break-word;
         overflow-wrap: anywhere;
    }
-    .markdown > * {
-       align-self: flex-start;
-    }
     .markdown img, .markdown video, .markdown figure, .markdown img + .caption {
         display: grid;
         gap: 10px;

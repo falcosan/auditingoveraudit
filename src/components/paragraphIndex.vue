@@ -1,8 +1,17 @@
 <template>
-  <div :class="[{ 'rounded-md shadow-md bg-gray-50': blok?.card }]">
+  <div
+    v-if="removeBackticks(blok[source])"
+    :class="[
+      { 'max-w-prose mx-auto': blok.space_center },
+      { 'text-center': blok.text_center },
+      ,
+      { 'rounded-md shadow-md bg-gray-50': blok.card },
+    ]"
+  >
     <Markdown
       class="markdown"
-      :class="{ 'p-5': blok?.card }"
+      :class="{ 'p-5': blok.card }"
+      :style="`color: ${blok.color.color}`"
       :source="text"
       breaks
       emoji
@@ -18,6 +27,7 @@ export default {
   components: {
     Markdown,
   },
+  inject: ["removeBackticks"],
   props: {
     blok: {
       type: Object,
