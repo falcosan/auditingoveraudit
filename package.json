@@ -1,5 +1,5 @@
 {
-  "name": "agostina_cv",
+  "name": "auditingoveraudit",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -13,13 +13,13 @@
   },
   "devDependencies": {
     "@iconify/vue": "^3.2.1",
-    "@rushstack/eslint-patch": "^1.1.1",
-    "@storyblok/vue": "^6.0.1",
+    "@rushstack/eslint-patch": "^1.1.2",
+    "@storyblok/vue": "^6.0.2",
     "@vitejs/plugin-vue": "^2.3.1",
     "@vue/eslint-config-prettier": "^7.0.0",
     "autoprefixer": "^10.4.4",
     "axios": "^0.26.1",
-    "eslint": "^8.12.0",
+    "eslint": "^8.13.0",
     "eslint-plugin-vue": "^8.6.0",
     "postcss": "^8.4.12",
     "prettier": "^2.6.2",

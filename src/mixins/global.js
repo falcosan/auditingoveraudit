@@ -1,3 +1,4 @@
+import container from "../components/containerIndex.vue";
 export default class Global {
   static unicSet(source, name) {
     return source === name;
@@ -8,5 +9,8 @@ export default class Global {
     } else {
       return source;
     }
+  }
+  static containerComponent() {
+    return container;
   }
 }

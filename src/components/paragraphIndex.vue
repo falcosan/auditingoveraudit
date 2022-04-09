@@ -4,12 +4,13 @@
     :class="[
       { 'max-w-prose mx-auto': blok.space_center },
       { 'text-center': blok.text_center },
-      { 'rounded-md shadow-md bg-gray-50': blok.card },
+      { 'rounded-md shadow-md': blok.background.color },
     ]"
+    :style="`background-color: ${blok.background.color}`"
   >
     <Markdown
       class="markdown"
-      :class="{ 'p-2.5 md:p-5': blok.card }"
+      :class="{ 'p-2.5 md:p-5': blok.background.color }"
       :style="`color: ${blok.color.color}`"
       :source="text"
       breaks

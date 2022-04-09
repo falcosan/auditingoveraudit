@@ -7,10 +7,12 @@
         :is="component.component"
         :blok="component"
       >
-        <span
-          class="text-center font-bold"
-          v-text="`© ${currentYear} - Auditing Overaudit`"
-        />
+        <template #content>
+          <span
+            class="text-center font-bold"
+            v-text="`© ${currentYear} - Auditing Overaudit`"
+          />
+        </template>
       </component>
     </div>
   </section>

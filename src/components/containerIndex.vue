@@ -1,29 +1,49 @@
 <template>
   <div
     v-if="blok.body.length > 0"
-    class="w-full p-5 md:p-10"
+    :class="[
+      'w-full',
+      container
+        ? [{ 'p-5 rounded-md shadow-md': blok.color.color }]
+        : ' p-5 md:p-10',
+      { 'flex justify-center': blok.center },
+    ]"
     :style="`background-color: ${blok.color.color}`"
   >
+    <template v-if="blok.title">
+      <span class="text-xl" v-text="blok.title" />
+      <hr class="my-2.5" />
+    </template>
     <div
-      class="flex"
       :class="[
-        { 'max-w-prose mx-auto': blok.center },
+        { 'flex -my-2.5 sm:-mx-2.5': !container },
+        { 'max-w-prose': blok.center },
         !!+blok.direction
-          ? 'flex-col space-y-5'
-          : 'flex-col space-y-5 sm:space-y-0 sm:space-x-5 sm:flex-row items-center justify-between flex-wrap',
+          ? 'w-full flex-col'
+          : 'flex-col sm:flex-row sm:items-center justify-between flex-wrap',
       ]"
     >
-      <component
+      <div
+        :class="[
+          { 'my-2.5 sm:mx-2.5': !container },
+          { 'flex-auto sm:w-3/12': !!!+blok.direction },
+        ]"
         v-for="component in blok.body"
         :key="component._uid"
-        :is="component.component"
-        :blok="component"
-      />
-      <slot />
+      >
+        <component :is="component.component" :blok="component" container />
+      </div>
+      <div
+        v-if="hasSlot('content')"
+        :class="['text-center', { 'my-2.5 sm:mx-2.5': !container }]"
+      >
+        <slot name="content" />
+      </div>
     </div>
   </div>
 </template>
 <script>
+import utils from "../mixins/utils";
 import paragraph from "./paragraphIndex.vue";
 import media from "./mediaIndex.vue";
 import link from "./linkIndex.vue";
@@ -39,9 +59,14 @@ export default {
       type: Object,
       default: () => {},
     },
+    container: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup() {
-    return {};
+    const { hasSlot } = utils();
+    return { hasSlot };
   },
 };
 </script>
