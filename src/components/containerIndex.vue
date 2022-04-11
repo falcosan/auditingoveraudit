@@ -2,10 +2,10 @@
   <div
     v-if="blok.body.length > 0"
     :class="[
-      'w-full',
+      'h-full',
       container
-        ? [{ 'p-5 rounded-md shadow-md': blok.color.color }]
-        : ' p-5 md:p-10',
+        ? { 'p-5 rounded-md shadow-md': blok.color.color }
+        : 'p-5 md:p-10',
       { 'flex justify-center': blok.center },
     ]"
     :style="`background-color: ${blok.color.color}`"
@@ -16,16 +16,15 @@
     </template>
     <div
       :class="[
-        { 'flex -my-2.5 sm:-mx-2.5': !container },
+        'grid sm:flex',
+        { '-my-2.5 sm:-mx-2.5': !container },
         { 'max-w-prose': blok.center },
-        !!+blok.direction
-          ? 'w-full flex-col'
-          : 'flex-col sm:flex-row sm:items-center justify-between flex-wrap',
+        !!+blok.direction ? 'w-full h-full flex-col' : 'flex-row flex-wrap',
       ]"
     >
       <div
         :class="[
-          { 'my-2.5 sm:mx-2.5': !container },
+          container ? 'h-full' : 'my-2.5 sm:mx-2.5',
           { 'flex-auto sm:w-3/12': !!!+blok.direction },
         ]"
         v-for="component in blok.body"
@@ -35,7 +34,11 @@
       </div>
       <div
         v-if="hasSlot('content')"
-        :class="['text-center', { 'my-2.5 sm:mx-2.5': !container }]"
+        :class="[
+          'text-center',
+          { 'my-2.5 sm:mx-2.5': !container },
+          { 'flex-auto sm:w-3/12': !!!+blok.direction },
+        ]"
       >
         <slot name="content" />
       </div>
